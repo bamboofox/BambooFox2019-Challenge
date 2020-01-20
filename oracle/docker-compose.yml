@@ -1,0 +1,13 @@
+version: '2.2'
+services:
+    ctf:
+        build: ./image
+        network_mode: "bridge"
+        volumes:
+            - ./share:/home/ctf/:ro
+        ports:
+            - "20000:9999"
+        expose:
+            - "9999"
+        restart: always
+        entrypoint: ["socat", "TCP-LISTEN:9999,fork", "EXEC:/home/ctf/run.sh"]
