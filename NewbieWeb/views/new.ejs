@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <%- include('./partials/header.ejs') %>
+  </head>
+
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main class="container">
+      <div class="jumbotron">
+        <h1>New Post</h1>
+        <hr>
+        <form>
+          <fieldset>
+            <div class="form-group">
+              <label for="file">File</label>
+              <input id="file" type="text" class="form-control" placeholder="filename here" maxlength="16" required>
+            </div>
+            <div class="form-group">
+              <label for="code">Code</label>
+              <textarea id="code" class="form-control" rows="10" placeholder="code here" maxlength="1024" required></textarea>
+            </div>
+            <div id="alert" class="alert alert-dismissible alert-danger">
+              <button type="button" class="close" data-dismissible="alert">&times;</button>
+              <span id="message"></span>
+            </div>
+            <button id="submit" type="button" class="btn btn-primary btn-lg btn-block">Submit!</button>
+          </fieldset>
+        </form>
+      </div>
+    </main>
+
+    <script src="/public/javascripts/new.js"></script>
+  </body>
+
+</html>

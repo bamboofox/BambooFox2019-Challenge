@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - '8005:3000'
+    volumes:
+      - .:/src
+    restart: always

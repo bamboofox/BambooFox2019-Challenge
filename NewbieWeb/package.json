@@ -1,0 +1,24 @@
+{
+  "name": "fake-php",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js",
+    "ejslint": "find views -type f -iname '*.ejs' -exec bash -c \"ejslint '{}'\" \\;",
+    "eslint": "eslint . --ext .js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "helmet": "^3.21.2",
+    "morgan": "~1.9.1",
+    "node-schedule": "^1.3.2"
+  },
+  "devDependencies": {
+    "ejs-lint": "^0.3.0",
+    "eslint": "^6.7.2",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.2"
+  }
+}

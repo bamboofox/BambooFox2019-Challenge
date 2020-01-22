@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <%- include('./partials/header.ejs') %> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/atom-one-light.min.css">
+  </head>
+
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main class="container">
+      <div class="jumbotron">
+        <% if (error) { %>
+          <h1>Error</h1>
+          <hr>
+          <div>
+            <p><%= content %></p>
+          </div>
+        <% } else { %>
+          <% if (page === 'nav') { %>
+            <h1><%= link %></h1>
+            <hr>
+            <div>
+              <p><%= content %></p>
+            </div>
+          <% } else if (page === 'code') { %>
+            <h1><%= file %></h1>
+            <hr>
+            <div>
+              <pre><code><%= content %></code></pre>
+            </div>
+          <% } else { %>
+            <h1>Unknown error occured!</h1>
+            <hr>
+            <div>
+              <p>Please contact the admin!</p>
+            </div>
+          <% } %>
+        <% } %>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
+    <script src="/public/javascripts/view.js"></script>
+  </body>
+
+</html>
