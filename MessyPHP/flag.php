@@ -1,0 +1,3 @@
+<?php
+
+$fllllllag='BAMBOOFOX{WHY_THERE_ARE_UNICODE_LA}';
