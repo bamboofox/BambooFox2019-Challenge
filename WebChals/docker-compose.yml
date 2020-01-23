@@ -1,0 +1,53 @@
+version: '3'
+
+# Please read /home/web/flags/flag1.txt
+# BAMBOOFOX{251d19bd7cb60e72a3825d898bffcee5}
+
+# Please read /home/web/flags/flag2-???.txt
+# BAMBOOFOX{dfdacda187002cb07922c42389a1aa83}
+
+# Please read http://neighbor/flag3.txt
+# BAMBOOFOX{7bd38c3cb43b20cc4081fbcb6a8342d9}
+
+# 大吉
+# BAMBOOFOX{78c75409bab501f3973ac6dc7e309b59}
+
+# warmup
+# BAMBOOFOX{d22a508c497c1ba84fb3e8aab238a74e}
+
+services:
+
+  happy_new_year:
+    build: happy_new_year
+    ports:
+      - 8001:8888
+    volumes:
+      # - ./happy_new_year/server:/home/web/server:ro
+      - ./happy_new_year/flags:/home/web/flags/:ro
+    networks:
+      - internal
+
+  neighbor:
+    image: nginx:1.15.10
+    volumes:
+      - ./neighbor/:/usr/share/nginx/html:ro
+    networks:
+      - internal
+
+  daji:
+    image: php:7-apache
+    volumes:
+      - ./daji/html:/var/www/html:ro
+    ports:
+      - 8002:80
+
+  warmup:
+    build: ./warmup
+    volumes:
+      - ./warmup/html:/var/www/html:ro
+    ports:
+      - 8003:80
+
+networks:
+  internal:
+    driver: bridge
