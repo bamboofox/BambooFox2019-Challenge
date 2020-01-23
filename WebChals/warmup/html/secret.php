@@ -1,0 +1,2 @@
+<?php
+// BAMBOOFOX{d22a508c497c1ba84fb3e8aab238a74e}
